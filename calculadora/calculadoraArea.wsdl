@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://ws.apache.org/axis2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" targetNamespace="http://ws.apache.org/axis2">
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://ws.apache.org/axis2">
+            <xs:element name="areaRectangulo">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="args0" type="xs:int"/>
+                        <xs:element name="args1" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="areaRectanguloResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="return" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="areaCuadrado">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="args0" type="xs:int"/>
+                        <xs:element name="args1" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="areaCuadradoResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="return" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="areaCirculo">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="args0" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="areaCirculoResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="return" type="xs:float"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="areaCirculoRequest">
+        <wsdl:part name="parameters" element="ns:areaCirculo"/>
+    </wsdl:message>
+    <wsdl:message name="areaCirculoResponse">
+        <wsdl:part name="parameters" element="ns:areaCirculoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="areaRectanguloRequest">
+        <wsdl:part name="parameters" element="ns:areaRectangulo"/>
+    </wsdl:message>
+    <wsdl:message name="areaRectanguloResponse">
+        <wsdl:part name="parameters" element="ns:areaRectanguloResponse"/>
+    </wsdl:message>
+    <wsdl:message name="areaCuadradoRequest">
+        <wsdl:part name="parameters" element="ns:areaCuadrado"/>
+    </wsdl:message>
+    <wsdl:message name="areaCuadradoResponse">
+        <wsdl:part name="parameters" element="ns:areaCuadradoResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="calculadoraAreaPortType">
+        <wsdl:operation name="areaCirculo">
+            <wsdl:input message="ns:areaCirculoRequest" wsaw:Action="urn:areaCirculo"/>
+            <wsdl:output message="ns:areaCirculoResponse" wsaw:Action="urn:areaCirculoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="areaRectangulo">
+            <wsdl:input message="ns:areaRectanguloRequest" wsaw:Action="urn:areaRectangulo"/>
+            <wsdl:output message="ns:areaRectanguloResponse" wsaw:Action="urn:areaRectanguloResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="areaCuadrado">
+            <wsdl:input message="ns:areaCuadradoRequest" wsaw:Action="urn:areaCuadrado"/>
+            <wsdl:output message="ns:areaCuadradoResponse" wsaw:Action="urn:areaCuadradoResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="calculadoraAreaSoap11Binding" type="ns:calculadoraAreaPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="areaCirculo">
+            <soap:operation soapAction="urn:areaCirculo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="areaRectangulo">
+            <soap:operation soapAction="urn:areaRectangulo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="areaCuadrado">
+            <soap:operation soapAction="urn:areaCuadrado" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="calculadoraAreaSoap12Binding" type="ns:calculadoraAreaPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="areaCirculo">
+            <soap12:operation soapAction="urn:areaCirculo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="areaRectangulo">
+            <soap12:operation soapAction="urn:areaRectangulo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="areaCuadrado">
+            <soap12:operation soapAction="urn:areaCuadrado" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="calculadoraAreaHttpBinding" type="ns:calculadoraAreaPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="areaCirculo">
+            <http:operation location="areaCirculo"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="areaRectangulo">
+            <http:operation location="areaRectangulo"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="areaCuadrado">
+            <http:operation location="areaCuadrado"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="calculadoraArea">
+        <wsdl:port name="calculadoraAreaHttpSoap11Endpoint" binding="ns:calculadoraAreaSoap11Binding">
+            <soap:address location="http://localhost:8080/axis2/services/calculadoraArea"/>
+        </wsdl:port>
+        <wsdl:port name="calculadoraAreaHttpSoap12Endpoint" binding="ns:calculadoraAreaSoap12Binding">
+            <soap12:address location="http://localhost:8080/axis2/services/calculadoraArea"/>
+        </wsdl:port>
+        <wsdl:port name="calculadoraAreaHttpEndpoint" binding="ns:calculadoraAreaHttpBinding">
+            <http:address location="http://localhost:8080/axis2/services/calculadoraArea"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

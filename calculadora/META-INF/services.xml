@@ -1,0 +1,13 @@
+<service name="calculadoraArea">
+    <description>super calculadora area</description>
+    <parameter name="ServiceClass">calculadoraArea</parameter>
+    <operation name="areaRectangulo">
+        <messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+    </operation>
+    <operation name="areaCuadrado">
+        <messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+    </operation>
+    <operation name="areaCirculo">
+        <messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+    </operation>
+</service>
