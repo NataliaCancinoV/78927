@@ -1,0 +1,16 @@
+#en docker play
+#instalar el framework .net version
+from mcr.microsoft.com/dotnet/sdk:5.0
+#clonar el repositorio del servicio
+run git clone https://github.com/tareasr/78927
+#independizarlo para simplificar rutas
+run mv /78927/practica03 /app
+workdir /app
+expose 5000
+#defino el entry point
+cmd ["dotnet","run"]
+#instalar el paquete SoapCore
+run dotnet add package SoapCore
+#limpiamos los certificados
+run dotnet dev-certs https --clean
+run dotnet dev-certs https -t
