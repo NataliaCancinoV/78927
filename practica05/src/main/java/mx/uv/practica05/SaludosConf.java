@@ -18,27 +18,25 @@ import org.springframework.xml.xsd.XsdSchema;
 @Configuration
 public class SaludosConf extends WsConfigurerAdapter{
     @Bean
-    public XsdSchema saludoSchema(){
+    public XsdSchema saludosSchema(){
         return new SimpleXsdSchema(new ClassPathResource("saludos.xsd"));
     }
-    //APLICATION CONTEXT ES EL ENTORNO DONDE SE VA A EJECUTAR
     @Bean
-    public ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet(ApplicationContext applicationContext){
+    public ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServler(ApplicationContext applicationContext){
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
         servlet.setApplicationContext(applicationContext);
-        servlet.setTransformSchemaLocations(true);
-
+        servlet.setTransformWsdlLocations(true);
         return new ServletRegistrationBean<>(servlet, "/ws/*");
     }
-    //METODO QUE HACE QUE SE EXPONGA EL WEB SERVICE
-    @Bean(name = "saludos")
-    public DefaultWsdl11Definition defaultWsdl11Definition (XsdSchema saludoSchema){
+    @Bean(name="saludos")
+    public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema saludoSchema){
         DefaultWsdl11Definition wsdl = new DefaultWsdl11Definition();
         wsdl.setPortTypeName("saludosPort");
         wsdl.setLocationUri("/ws");
         wsdl.setTargetNamespace("t4is.uv.mx/saludos");
         wsdl.setSchema(saludoSchema);
         return wsdl;
-    } 
+    }
+    
 }
 
