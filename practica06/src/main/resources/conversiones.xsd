@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="t4is.uv.mx/conversiones"
+xmlns:tns="t4is.uv.mx/conversiones" elementFormDefault="qualified">
+
+<xs:element name="ConversionCelsiusAFahrenheitRequest">
+   <xs:complexType>
+      <xs:sequence>
+         <xs:element name="gradosC" type="xs:double"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:element>
+
+<xs:element name="ConversionCelsiusAFahrenheitResponse">
+   <xs:complexType>
+      <xs:sequence>
+         <xs:element name="respuesta" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:element>
+
+<xs:element name="ConversionFahrenheitACelsiusRequest">
+   <xs:complexType>
+      <xs:sequence>
+         <xs:element name="gradosF" type="xs:double"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:element>
+
+<xs:element name="ConversionFahrenheitACelsiusResponse">
+   <xs:complexType>
+      <xs:sequence>
+         <xs:element name="respuesta" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:element>
+
+<xs:element name="HistorialConversionesRequest"/>
+<xs:element name="HistorialConversionesResponse">
+   <xs:complexType>
+      <xs:sequence>
+         <xs:element name="conversiones" maxOccurs="unbounded">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="id" type="xs:string"></xs:element>
+                  <xs:element name="gradosConvertir" type="xs:double"></xs:element>
+                  <xs:element name="idConversion" type="xs:string"></xs:element>
+                  <xs:element name="conversion" type="xs:double"></xs:element>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+</xs:element>
+
+</xs:schema> 
